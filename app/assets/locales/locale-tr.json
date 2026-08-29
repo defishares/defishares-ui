@@ -1702,7 +1702,7 @@
             "confirm": "ONAYLAMAK",
             "create_committee": "Komite üyesi ol",
             "from": "From",
-            "text": "After being voted in as active committee you can help set policies and parameters for the BitShares blockchain including: <ul><li>Transaction fees</li><li>Parameters of BitAssets (e.g. market fees)</li><li>Blockchain parameters (e.g. block size & interval)</li><li>Referral and vesting parameters (e.g. cash back percent for life-time-members and vesting period)</li><li>Other governance matters</li></ul> Submit a link to your website or forum post explaining why yo would be a exemplary member to attract enough votes to become active. Committee members should have basic technical understanding of BitShares and bring knowledge and expertise in key aspects of governing an autonomous and self-sustaining blockchain. This is an unpaid position.",
+            "text": "After being voted in as active committee you can help set policies and parameters for the DefiShares blockchain including: <ul><li>Transaction fees</li><li>Parameters of BitAssets (e.g. market fees)</li><li>Blockchain parameters (e.g. block size & interval)</li><li>Referral and vesting parameters (e.g. cash back percent for life-time-members and vesting period)</li><li>Other governance matters</li></ul> Submit a link to your website or forum post explaining why yo would be a exemplary member to attract enough votes to become active. Committee members should have basic technical understanding of DefiShares and bring knowledge and expertise in key aspects of governing an autonomous and self-sustaining blockchain. This is an unpaid position.",
             "url": "URL",
             "web_example": "Komite teklif gönderinizin bağlantısını girin"
         },
