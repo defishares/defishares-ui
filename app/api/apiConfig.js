@@ -133,6 +133,14 @@ export const settingsAPIs = {
             location: "DefiShares Mainnet"
         },
         {
+            url: "wss://8.148.185.200:8008",
+            location: "DefiShares Community Node"
+        },
+        {
+            url: "wss://api-01.defishares.org",
+            location: "DefiShares Official Node"
+        },
+        {
             url: "wss://api.defishares.org/snapshot-ws/",
             location: "DefiShares Snapshot-only Testnet"
         },
