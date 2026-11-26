@@ -137,6 +137,10 @@ export const settingsAPIs = {
             location: "DefiShares Community Node"
         },
         {
+            url: "wss://118.31.227.1:8008",
+            location: "社区节点"
+        },
+        {
             url: "wss://api-01.defishares.org",
             location: "DefiShares Official Node"
         },
