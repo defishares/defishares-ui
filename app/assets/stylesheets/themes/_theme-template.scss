@@ -1893,26 +1893,6 @@
         padding: 6px;
         @include RobotoMedium;
     }
-    .margin-ratio.danger {
-        background-color: darken($alert-color, 15%) !important;
-        color: darken($dark-text-color, 15%);
-    }
-    .margin-ratio.warning {
-        background-color: darken($warning-color, 15%) !important;
-        color: darken($dark-text-color, 15%);
-    }
-    tr.margin-row {
-        > td.danger {
-            background-color: darken($alert-color, 15%) !important;
-            color: $dark-text-color;
-            @include RobotoMedium;
-        }
-        > td.warning {
-            background-color: darken($warning-color, 15%) !important;
-            color: $dark-text-color;
-            @include RobotoMedium;
-        }
-    }
     .nodes-header {
         border-bottom-color: $button-bg-color;
         background-color: $bg-color;

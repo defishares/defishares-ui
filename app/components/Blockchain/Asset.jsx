@@ -1818,8 +1818,7 @@ class Asset extends React.Component {
                         asset: c.amountToReceive().asset_id
                     },
                     cr: {
-                        ratio: c.getRatio(),
-                        status: c.getStatus()
+                        ratio: c.getRatio()
                     }
                 });
             });
@@ -1953,11 +1952,9 @@ class Asset extends React.Component {
                         return 0;
                     },
                     render: item => {
-                        let classNames = "margin-ratio " + item.status;
-
                         return (
                             <React.Fragment>
-                                <div className={classNames}>
+                                <div className="margin-ratio">
                                     {item.ratio.toFixed(3)}
                                 </div>
                             </React.Fragment>
