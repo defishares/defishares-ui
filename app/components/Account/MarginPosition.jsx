@@ -179,44 +179,6 @@ class MarginPosition extends React.Component {
         return c / (d / this._getFeedPrice());
     }
 
-    _getMR() {
-        return (
-            this.props.debtAsset.getIn([
-                "bitasset",
-                "current_feed",
-                "maintenance_collateral_ratio"
-            ]) / 1000
-        );
-    }
-
-    _getStatusClass() {
-        let cr = this._getCollateralRatio();
-        const mr = this._getMR();
-
-        if (isNaN(cr)) return null;
-        if (cr < mr) {
-            return "danger";
-        } else if (cr < mr + 0.5) {
-            return "warning";
-        } else {
-            return "";
-        }
-    }
-
-    _getCRTip() {
-        const statusClass = this._getStatusClass();
-        const mr = this._getMR();
-        if (!statusClass || statusClass === "") return null;
-
-        if (statusClass === "danger") {
-            return counterpart.translate("tooltip.cr_danger", {mr});
-        } else if (statusClass === "warning") {
-            return counterpart.translate("tooltip.cr_warning", {mr});
-        } else {
-            return null;
-        }
-    }
-
     render() {
         let {debtAsset, collateralAsset, object} = this.props;
 
@@ -274,11 +236,7 @@ class MarginPosition extends React.Component {
                     />
                 </td>
                 {has_order ? (
-                    <td
-                        data-place="bottom"
-                        data-tip={this._getCRTip()}
-                        className={"center-content " + this._getStatusClass()}
-                    >
+                    <td className="center-content">
                         {isPrediction
                             ? "1:1"
                             : utils.format_number(

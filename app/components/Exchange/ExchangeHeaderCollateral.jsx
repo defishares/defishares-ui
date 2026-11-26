@@ -3,9 +3,7 @@ import utils from "common/utils";
 import ChainTypes from "../Utility/ChainTypes";
 import BindToChainState from "../Utility/BindToChainState";
 import cnames from "classnames";
-import counterpart from "counterpart";
 import Translate from "react-translate-component";
-import {Tooltip} from "bitshares-ui-style-guide";
 import asset_utils from "../../lib/common/asset_utils";
 
 class MarginPosition extends React.Component {
@@ -44,73 +42,23 @@ class MarginPosition extends React.Component {
         return c / (d / this._getFeedPrice());
     }
 
-    _getMR() {
-        return (
-            this.props.debtAsset.getIn([
-                "bitasset",
-                "current_feed",
-                "maintenance_collateral_ratio"
-            ]) / 1000
-        );
-    }
-
-    _getStatusClass() {
-        let cr = this._getCollateralRatio();
-        const mr = this._getMR();
-
-        if (isNaN(cr)) return null;
-        if (cr < mr) {
-            return "danger";
-        } else if (cr < mr + 0.5) {
-            return "warning";
-        } else {
-            return "";
-        }
-    }
-
-    _getCRTip() {
-        const statusClass = this._getStatusClass();
-        const mr = this._getMR();
-        if (!statusClass || statusClass === "") return null;
-
-        if (statusClass === "danger") {
-            return counterpart.translate("tooltip.cr_danger", {mr});
-        } else if (statusClass === "warning") {
-            return counterpart.translate("tooltip.cr_warning", {mr});
-        } else {
-            return null;
-        }
-    }
-
     render() {
-        let {object} = this.props;
-        const co = object.toJS();
         const cr = this._getCollateralRatio();
-        const d = utils.get_asset_amount(co.debt, this.props.debtAsset);
-
-        const statusClass = this._getStatusClass();
 
         return (
-            <Tooltip placement="bottom" title={this._getCRTip()}>
-                <li
-                    className={cnames("stressed-stat", this.props.className)}
-                    onClick={this.props.onClick}
-                >
-                    <span>
-                        <span
-                            className={cnames(
-                                "value stat-primary",
-                                statusClass
-                            )}
-                        >
-                            {utils.format_number(cr, 2)}
-                        </span>
+            <li
+                className={cnames("stressed-stat", this.props.className)}
+                onClick={this.props.onClick}
+            >
+                <span>
+                    <span className="value stat-primary">
+                        {utils.format_number(cr, 2)}
                     </span>
-                    <div className="stat-text">
-                        <Translate content="header.collateral_ratio" />
-                    </div>
-                </li>
-            </Tooltip>
+                </span>
+                <div className="stat-text">
+                    <Translate content="header.collateral_ratio" />
+                </div>
+            </li>
         );
     }
 }
